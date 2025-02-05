@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClusterBackendAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a430a5a69f4ba3fd76491f3fdbd1aa6efbb472d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+717b9630f0d783274cf85bdf71dde3d43040a2a9")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClusterBackendAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClusterBackendAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -3544,11 +3544,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ClusterBackendAPI\\ClusterSystem\\ClusterBackendAPI\\ClusterBackendAPI.csproj",
+      "projectUniqueName": "D:\\ClusterSystem\\ClusterSystem\\ClusterBackendAPI\\ClusterBackendAPI.csproj",
       "projectName": "ClusterBackendAPI",
-      "projectPath": "D:\\ClusterBackendAPI\\ClusterSystem\\ClusterBackendAPI\\ClusterBackendAPI.csproj",
+      "projectPath": "D:\\ClusterSystem\\ClusterSystem\\ClusterBackendAPI\\ClusterBackendAPI.csproj",
       "packagesPath": "C:\\Users\\Tou Chang\\.nuget\\packages\\",
-      "outputPath": "D:\\ClusterBackendAPI\\ClusterSystem\\ClusterBackendAPI\\obj\\",
+      "outputPath": "D:\\ClusterSystem\\ClusterSystem\\ClusterBackendAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
