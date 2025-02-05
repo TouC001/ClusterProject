@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "pDFMvx/fy3ujcS3pYb1uYeckdjtUcrjWL+hMfofK/sQ=",
+  "Source": "ClusterBackendAPI",
+  "BasePath": "_content/ClusterBackendAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

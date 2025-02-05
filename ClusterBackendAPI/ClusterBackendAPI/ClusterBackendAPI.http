@@ -1,0 +1,6 @@
+@ClusterBackendAPI_HostAddress = http://localhost:5155
+
+GET {{ClusterBackendAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
