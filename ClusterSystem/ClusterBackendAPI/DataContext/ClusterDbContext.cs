@@ -14,5 +14,15 @@ namespace ClusterBackendAPI.DataContext
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Vote> Votes { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Role>().ToTable("Roles");
+            modelBuilder.Entity<User>().ToTable("Users");
+            modelBuilder.Entity<UserRole>().ToTable("UserRoles");
+            modelBuilder.Entity<Post>().ToTable("Posts");
+            modelBuilder.Entity<Comment>().ToTable("Comments");
+            modelBuilder.Entity<Vote>().ToTable("Votes");
+        }
+        
     }
 }

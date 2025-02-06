@@ -1,0 +1,12 @@
+C:\Users\15toc\Documents\ClusterProject\ClusterSystem\ClusterAPILibrary\bin\Debug\net9.0\ClusterAPILibrary.deps.json
+C:\Users\15toc\Documents\ClusterProject\ClusterSystem\ClusterAPILibrary\bin\Debug\net9.0\ClusterAPILibrary.dll
+C:\Users\15toc\Documents\ClusterProject\ClusterSystem\ClusterAPILibrary\bin\Debug\net9.0\ClusterAPILibrary.pdb
+C:\Users\15toc\Documents\ClusterProject\ClusterSystem\ClusterAPILibrary\obj\Debug\net9.0\ClusterAPILibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\15toc\Documents\ClusterProject\ClusterSystem\ClusterAPILibrary\obj\Debug\net9.0\ClusterAPILibrary.AssemblyInfoInputs.cache
+C:\Users\15toc\Documents\ClusterProject\ClusterSystem\ClusterAPILibrary\obj\Debug\net9.0\ClusterAPILibrary.AssemblyInfo.cs
+C:\Users\15toc\Documents\ClusterProject\ClusterSystem\ClusterAPILibrary\obj\Debug\net9.0\ClusterAPILibrary.csproj.CoreCompileInputs.cache
+C:\Users\15toc\Documents\ClusterProject\ClusterSystem\ClusterAPILibrary\obj\Debug\net9.0\ClusterAPILibrary.sourcelink.json
+C:\Users\15toc\Documents\ClusterProject\ClusterSystem\ClusterAPILibrary\obj\Debug\net9.0\ClusterAPILibrary.dll
+C:\Users\15toc\Documents\ClusterProject\ClusterSystem\ClusterAPILibrary\obj\Debug\net9.0\refint\ClusterAPILibrary.dll
+C:\Users\15toc\Documents\ClusterProject\ClusterSystem\ClusterAPILibrary\obj\Debug\net9.0\ClusterAPILibrary.pdb
+C:\Users\15toc\Documents\ClusterProject\ClusterSystem\ClusterAPILibrary\obj\Debug\net9.0\ref\ClusterAPILibrary.dll
