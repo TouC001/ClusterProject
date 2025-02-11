@@ -70,7 +70,6 @@ namespace ClusterBackendAPI.Services.Repo
         {
             Role role = _context.Roles
                                      .Where(a => a.Id == roleDTO.Id)
-                                     .Include(a => a.Name)
                                      .FirstOrDefault();
 
             if (role != null)
