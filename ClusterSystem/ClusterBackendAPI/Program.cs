@@ -1,4 +1,6 @@
 using ClusterBackendAPI.DataContext;
+using ClusterBackendAPI.Services.Repo;
+using ClusterBackendAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -6,13 +8,27 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+        var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         var builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy(name: MyAllowSpecificOrigins,
+                              policy =>
+                              {
+                                  policy.WithOrigins("https://localhost:7142",
+                                                      "http://localhost:5155");
+                              });
+        });
 
         // Add services to the container.
         builder.Services.AddDbContext<ClusterDbContext>(options =>
             options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
         builder.Services.AddControllers();
+        builder.Services.AddScoped<Repository>();
+        builder.Services.AddScoped<UserService>();
 
         builder.Services.AddSwaggerGen(options =>
         {
@@ -36,6 +52,8 @@ internal class Program
         }
 
         app.UseHttpsRedirection();
+
+        app.UseCors(MyAllowSpecificOrigins);
 
         app.UseAuthorization();
 

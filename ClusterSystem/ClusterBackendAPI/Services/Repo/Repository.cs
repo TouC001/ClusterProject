@@ -1,7 +1,9 @@
-﻿using ClusterBackendAPI.DataContext;
+﻿using ClusterAPILibrary.DTOs;
+using ClusterBackendAPI.DataContext;
 using ClusterBackendAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace ClusterBackendAPI.Services.Repository
+namespace ClusterBackendAPI.Services.Repo
 {
     public class Repository
     {
@@ -48,6 +50,7 @@ namespace ClusterBackendAPI.Services.Repository
         public void AddRole(Role role)
         {
             _context.Roles.Add(role);
+            _context.SaveChanges();
         }
 
         /// <summary>
@@ -57,6 +60,26 @@ namespace ClusterBackendAPI.Services.Repository
         public void RemoveRole(Role role)
         {
             _context.Roles.Remove(role);
+        }
+
+        /// <summary>
+        /// Updates a Role in the database.
+        /// </summary>
+        /// <param name="role">The Role information being updated.</param>
+        public Role UpdateRole(RoleDTO roleDTO)
+        {
+            Role role = _context.Roles
+                                     .Where(a => a.Id == roleDTO.Id)
+                                     .Include(a => a.Name)
+                                     .FirstOrDefault();
+
+            if (role != null)
+            {
+                role.Name = roleDTO.Name;
+                _context.SaveChanges();
+            }
+
+            return role;
         }
 
         #endregion

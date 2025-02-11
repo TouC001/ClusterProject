@@ -1,5 +1,6 @@
 # Visual Studio and Rider IDE files
-.vs/
+/.vs/
+/.vscode/
 .idea/
 *.suo
 *.user
@@ -7,8 +8,8 @@
 *.sln.docstates
 
 # Build and Output Directories
-bin/
-obj/
+/bin/
+/obj/
 out/
 Debug/
 Release/
