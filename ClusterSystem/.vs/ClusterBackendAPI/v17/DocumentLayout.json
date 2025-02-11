@@ -3,20 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|c:\\users\\15toc\\documents\\clusterproject\\clustersystem\\clusterbackendapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|solutionrelative:clusterbackendapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|c:\\users\\15toc\\documents\\clusterproject\\clustersystem\\clusterbackendapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|solutionrelative:clusterbackendapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|c:\\users\\15toc\\documents\\clusterproject\\clustersystem\\clusterbackendapi\\controllers\\datacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|solutionrelative:clusterbackendapi\\controllers\\datacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|c:\\users\\15toc\\documents\\clusterproject\\clustersystem\\clusterbackendapi\\services\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|solutionrelative:clusterbackendapi\\services\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|c:\\users\\15toc\\documents\\clusterproject\\clustersystem\\clusterbackendapi\\datacontext\\clusterdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|solutionrelative:clusterbackendapi\\datacontext\\clusterdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{289345A4-B6A1-4E94-B8CC-DB761C9E65BC}|ClusterAPILibrary\\ClusterAPILibrary.csproj|c:\\users\\15toc\\documents\\clusterproject\\clustersystem\\clusterapilibrary\\errorresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{289345A4-B6A1-4E94-B8CC-DB761C9E65BC}|ClusterAPILibrary\\ClusterAPILibrary.csproj|solutionrelative:clusterapilibrary\\errorresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|c:\\users\\15toc\\documents\\clusterproject\\clustersystem\\clusterbackendapi\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|solutionrelative:clusterbackendapi\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{289345A4-B6A1-4E94-B8CC-DB761C9E65BC}|ClusterAPILibrary\\ClusterAPILibrary.csproj|c:\\users\\15toc\\documents\\clusterproject\\clustersystem\\clusterapilibrary\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{289345A4-B6A1-4E94-B8CC-DB761C9E65BC}|ClusterAPILibrary\\ClusterAPILibrary.csproj|solutionrelative:clusterapilibrary\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|c:\\users\\15toc\\documents\\clusterproject\\clustersystem\\clusterbackendapi\\models\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|solutionrelative:clusterbackendapi\\models\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|c:\\users\\15toc\\documents\\clusterproject\\clustersystem\\clusterbackendapi\\models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|solutionrelative:clusterbackendapi\\models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|c:\\users\\15toc\\documents\\clusterproject\\clustersystem\\clusterbackendapi\\models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|solutionrelative:clusterbackendapi\\models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|c:\\users\\15toc\\documents\\clusterproject\\clustersystem\\clusterbackendapi\\models\\vote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|solutionrelative:clusterbackendapi\\models\\vote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|c:\\users\\15toc\\documents\\clusterproject\\clustersystem\\clusterbackendapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BDAF1BA-3933-4D6A-BCAE-4530CAAB460C}|ClusterBackendAPI\\ClusterBackendAPI.csproj|solutionrelative:clusterbackendapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +50,128 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Models\\User.cs",
+              "RelativeDocumentMoniker": "ClusterBackendAPI\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Models\\User.cs",
+              "RelativeToolTip": "ClusterBackendAPI\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T22:06:10.259Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ErrorResponse.cs",
-              "DocumentMoniker": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterAPILibrary\\ErrorResponse.cs",
-              "RelativeDocumentMoniker": "ClusterAPILibrary\\ErrorResponse.cs",
-              "ToolTip": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterAPILibrary\\ErrorResponse.cs",
-              "RelativeToolTip": "ClusterAPILibrary\\ErrorResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T18:33:32.423Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ApiResponse.cs",
-              "DocumentMoniker": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterAPILibrary\\ApiResponse.cs",
-              "RelativeDocumentMoniker": "ClusterAPILibrary\\ApiResponse.cs",
-              "ToolTip": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterAPILibrary\\ApiResponse.cs",
-              "RelativeToolTip": "ClusterAPILibrary\\ApiResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T18:32:39.313Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Repository.cs",
-              "DocumentMoniker": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Services\\Repository\\Repository.cs",
-              "RelativeDocumentMoniker": "ClusterBackendAPI\\Services\\Repository\\Repository.cs",
-              "ToolTip": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Services\\Repository\\Repository.cs",
-              "RelativeToolTip": "ClusterBackendAPI\\Services\\Repository\\Repository.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAlwDsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T17:09:28.442Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "DataController.cs",
               "DocumentMoniker": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Controllers\\DataController.cs",
               "RelativeDocumentMoniker": "ClusterBackendAPI\\Controllers\\DataController.cs",
               "ToolTip": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Controllers\\DataController.cs",
               "RelativeToolTip": "ClusterBackendAPI\\Controllers\\DataController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T22:42:01.337Z",
+              "WhenOpened": "2025-02-05T22:42:01.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Vote.cs",
+              "DocumentMoniker": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Models\\Vote.cs",
+              "RelativeDocumentMoniker": "ClusterBackendAPI\\Models\\Vote.cs",
+              "ToolTip": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Models\\Vote.cs",
+              "RelativeToolTip": "ClusterBackendAPI\\Models\\Vote.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T22:35:26.158Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Post.cs",
+              "DocumentMoniker": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Models\\Post.cs",
+              "RelativeDocumentMoniker": "ClusterBackendAPI\\Models\\Post.cs",
+              "ToolTip": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Models\\Post.cs",
+              "RelativeToolTip": "ClusterBackendAPI\\Models\\Post.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T22:32:43.916Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Comment.cs",
+              "DocumentMoniker": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Models\\Comment.cs",
+              "RelativeDocumentMoniker": "ClusterBackendAPI\\Models\\Comment.cs",
+              "ToolTip": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Models\\Comment.cs",
+              "RelativeToolTip": "ClusterBackendAPI\\Models\\Comment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T22:24:10.968Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Models\\UserRole.cs",
+              "RelativeDocumentMoniker": "ClusterBackendAPI\\Models\\UserRole.cs",
+              "ToolTip": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Models\\UserRole.cs",
+              "RelativeToolTip": "ClusterBackendAPI\\Models\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T22:17:27.597Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Role.cs",
+              "DocumentMoniker": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Models\\Role.cs",
+              "RelativeDocumentMoniker": "ClusterBackendAPI\\Models\\Role.cs",
+              "ToolTip": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Models\\Role.cs",
+              "RelativeToolTip": "ClusterBackendAPI\\Models\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T22:04:42.25Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Program.cs",
+              "RelativeDocumentMoniker": "ClusterBackendAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\Program.cs",
+              "RelativeToolTip": "ClusterBackendAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T21:34:40.325Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClusterDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\DataContext\\ClusterDbContext.cs",
+              "RelativeDocumentMoniker": "ClusterBackendAPI\\DataContext\\ClusterDbContext.cs",
+              "ToolTip": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\DataContext\\ClusterDbContext.cs",
+              "RelativeToolTip": "ClusterBackendAPI\\DataContext\\ClusterDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T21:46:18.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "ClusterBackendAPI\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\appsettings.Development.json",
+              "RelativeToolTip": "ClusterBackendAPI\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-05T21:41:59.892Z",
               "EditorCaption": ""
             }
           ]
