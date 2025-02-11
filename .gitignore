@@ -1,0 +1,55 @@
+# Visual Studio and Rider IDE files
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build and Output Directories
+bin/
+obj/
+out/
+Debug/
+Release/
+
+# User-Specific Files
+*.rsuser
+*.swp
+*.sln.cache
+
+# Dependency Folders
+packages/
+node_modules/
+
+# Logs and Database Files
+*.log
+logs/
+app.db
+app.db-journal
+
+# Configuration Files (Sensitive Data)
+.env
+appsettings.Development.json
+appsettings.Staging.json
+appsettings.Production.json
+
+# Static Assets and Compiled Files
+wwwroot/node_modules/
+wwwroot/lib/
+wwwroot/dist/
+wwwroot/build/
+
+# Publish Output
+PublishScripts/
+publish/
+*.pid
+*.lock
+
+# Docker
+docker-compose.override.yml
+*.tar
+
+# Resharper & Rider
+*.DotSettings
+*.DotSettings.user

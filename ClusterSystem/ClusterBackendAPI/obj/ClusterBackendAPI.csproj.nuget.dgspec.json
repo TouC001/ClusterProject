@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ClusterSystem\\ClusterSystem\\ClusterBackendAPI\\ClusterBackendAPI.csproj": {}
+    "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\ClusterBackendAPI.csproj": {}
   },
   "projects": {
-    "D:\\ClusterSystem\\ClusterSystem\\ClusterBackendAPI\\ClusterBackendAPI.csproj": {
+    "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\ClusterBackendAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ClusterSystem\\ClusterSystem\\ClusterBackendAPI\\ClusterBackendAPI.csproj",
+        "projectUniqueName": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\ClusterBackendAPI.csproj",
         "projectName": "ClusterBackendAPI",
-        "projectPath": "D:\\ClusterSystem\\ClusterSystem\\ClusterBackendAPI\\ClusterBackendAPI.csproj",
-        "packagesPath": "C:\\Users\\Tou Chang\\.nuget\\packages\\",
-        "outputPath": "D:\\ClusterSystem\\ClusterSystem\\ClusterBackendAPI\\obj\\",
+        "projectPath": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\ClusterBackendAPI.csproj",
+        "packagesPath": "C:\\Users\\15toc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\15toc\\Documents\\ClusterProject\\ClusterSystem\\ClusterBackendAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Tou Chang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\15toc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
