@@ -3,6 +3,7 @@ using System;
 using ClusterBackendAPI.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClusterBackendAPI.Migrations
 {
     [DbContext(typeof(ClusterDbContext))]
-    partial class ClusterDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250213174707_AddUserRoleRelationships")]
+    partial class AddUserRoleRelationships
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
