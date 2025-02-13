@@ -22,6 +22,18 @@ namespace ClusterBackendAPI.DataContext
             modelBuilder.Entity<Post>().ToTable("Posts");
             modelBuilder.Entity<Comment>().ToTable("Comments");
             modelBuilder.Entity<Vote>().ToTable("Votes");
+
+            // User has many UserRoles, UserRole belongs to User
+            modelBuilder.Entity<UserRole>()
+                .HasOne(ur => ur.User)
+                .WithMany(u => u.userRoles)
+                .HasForeignKey(ur => ur.UserId);
+
+            // UserRole has one Role, Role can be referenced by many UserRoles
+            modelBuilder.Entity<UserRole>()
+                .HasOne(ur => ur.Role)
+                .WithMany(r => r.userRoles)
+                .HasForeignKey(ur => ur.RoleId);
         }
         
     }

@@ -66,5 +66,39 @@ namespace ClusterBackendAPI.Services
             _repository.AddRole(role);
         }
         #endregion
+
+        #region Users
+
+        public UserResponseDTO GetUserById(int userId)
+        {
+            User user = _repository.GetUserById(userId);
+
+            if (user != null)
+            {
+                return new UserResponseDTO
+                {
+                    Id = user.Id,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Username = user.Username,
+                    Email = user.Email,
+                    userRoleDTOs = user.userRoles.Select(ur => new UserRoleDTO
+                    {
+                        Id = ur.Id,
+                        RoleId = ur.RoleId,
+                        UserId = ur.UserId,
+                        RoleDTO = new RoleDTO
+                        {
+                            Id = ur.Role.Id,
+                            Name = ur.Role.Name
+                        }
+                    }).ToList()
+                };
+            }
+
+            return null;
+        }
+
+        #endregion
     }
 }

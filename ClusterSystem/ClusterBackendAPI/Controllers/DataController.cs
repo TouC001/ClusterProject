@@ -186,5 +186,29 @@ namespace ClusterBackendAPI.Controllers
 
         #endregion
 
+        #region User
+
+        [HttpGet]
+        [Route("GetUser")]
+        public IActionResult GetUser(int userId)
+        {
+            try
+            {
+                UserResponseDTO user = _userService.GetUserById(userId);
+
+                if (user == null)
+                {
+                    return NotFound(new ApiResponse<string>("User was not found."));
+                }
+
+                return Ok(new ApiResponse<UserResponseDTO>(user));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ApiResponse<string>(ex.Message));
+            }
+        }
+
+        #endregion
     }
 }

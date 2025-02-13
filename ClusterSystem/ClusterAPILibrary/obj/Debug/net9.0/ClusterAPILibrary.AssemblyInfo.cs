@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClusterAPILibrary")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6285830d8b2631a4278b2c7ff922dda657b9ac89")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+317b0bf1112d3dec7bd5765b63a4cbf0e7d30d5a")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClusterAPILibrary")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClusterAPILibrary")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

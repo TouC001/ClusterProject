@@ -82,5 +82,22 @@ namespace ClusterBackendAPI.Services.Repo
         }
 
         #endregion
+
+        #region Users
+
+        /// <summary>
+        /// Gets a User by Id
+        /// </summary>
+        /// <param name="id">The ID related to the User.</param>
+        /// <returns>A user object.</returns>
+        public User GetUserById(int id)
+        {
+            return _context.Users
+                               .Include(u => u.userRoles)
+                               .ThenInclude(ur => ur.Role)
+                               .FirstOrDefault(u => u.Id == id);
+        }
+
+        #endregion
     }
 }
