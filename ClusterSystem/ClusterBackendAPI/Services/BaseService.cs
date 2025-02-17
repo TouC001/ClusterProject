@@ -9,10 +9,13 @@ namespace ClusterBackendAPI.Services
         /// </summary>
         protected readonly Repository _repository;
 
+        protected readonly ILogger<BaseService> _logger;
 
-        public BaseService(Repository repository)
+
+        public BaseService(Repository repository, ILogger<BaseService> logger)
         {
             _repository = repository;
+            _logger = logger;
         }
     }
 }

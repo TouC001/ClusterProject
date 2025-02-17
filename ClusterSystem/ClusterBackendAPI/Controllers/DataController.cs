@@ -120,7 +120,7 @@ namespace ClusterBackendAPI.Controllers
         {
             try
             {
-                if (roleDTO == null)
+                if (roleDTO == null || string.IsNullOrWhiteSpace(roleDTO.Name))
                 {
                     throw new Exception("RoleDTO information is empty.");
                 }

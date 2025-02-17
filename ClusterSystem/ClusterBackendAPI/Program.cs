@@ -12,6 +12,12 @@ internal class Program
 
         var builder = WebApplication.CreateBuilder(args);
 
+        // Configure logging
+        builder.Logging.ClearProviders();
+        builder.Logging.AddConsole();
+        builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
+
+
         builder.Services.AddCors(options =>
         {
             options.AddPolicy(name: MyAllowSpecificOrigins,
@@ -39,11 +45,11 @@ internal class Program
 
         app.UseSwagger();
 
-        // Enable middleware to serve Swagger UI (HTML, JS, CSS, etc.)
+        // Enable middleware to serve Swagger UI.
         app.UseSwaggerUI(c =>
         {
             c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cluster API v1");
-            c.RoutePrefix = string.Empty;  // Optional: sets Swagger UI at the root (http://localhost:5000)
+            c.RoutePrefix = string.Empty; 
         });
 
         // Configure the HTTP request pipeline.

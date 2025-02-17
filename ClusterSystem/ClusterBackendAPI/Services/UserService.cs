@@ -6,7 +6,7 @@ namespace ClusterBackendAPI.Services
 {
     public class UserService : BaseService
     {
-        public UserService(Repository repository) : base(repository) { }
+        public UserService(Repository repository, ILogger<UserService> logger) : base(repository, logger) { }
 
         #region Roles
 
@@ -36,18 +36,30 @@ namespace ClusterBackendAPI.Services
         /// <returns>A RoleDTO with updated values.</returns>
         public RoleDTO UpdateRole(RoleDTO roleDTO)
         {
+            _logger.LogInformation($"Updating role with Id: {roleDTO.Id}");
+
             RoleDTO result = null;
 
-            Role updatedRole = _repository.UpdateRole(roleDTO);
-
-            if (updatedRole != null)
+            try
             {
-                result = new RoleDTO
+                Role updatedRole = _repository.UpdateRole(roleDTO);
+
+                if (updatedRole != null)
                 {
-                    Id = updatedRole.Id,
-                    Name = updatedRole.Name
-                };
+                    result = new RoleDTO
+                    {
+                        Id = updatedRole.Id,
+                        Name = updatedRole.Name
+                    };
+
+                    _logger.LogInformation($"Role with Id: {roleDTO.Id} updated successfully.");
+                }
             }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error updating role with Id: {roleDTO.Id}. Error: {ex.Message}");
+            }
+            
 
             return result;
         }
