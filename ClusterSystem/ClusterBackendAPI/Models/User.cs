@@ -11,9 +11,7 @@ namespace ClusterBackendAPI.Models
 
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        public string Password { get; set; }
         public string PasswordHash { get; set; }
-        public string ConfirmPassword { get; set; }
         public List<UserRole> userRoles { get; set; }
     }
 }
