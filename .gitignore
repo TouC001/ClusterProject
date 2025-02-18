@@ -54,3 +54,5 @@ docker-compose.override.yml
 # Resharper & Rider
 *.DotSettings
 *.DotSettings.user
+ClusterSystem/.vs/ClusterBackendAPI/FileContentIndex/33c943c7-91b7-4bf1-93a2-6178cb1cdba5.vsidx
+ClusterSystem/.vs/ClusterBackendAPI/FileContentIndex/485c3085-777a-4025-9306-b297a3d1d67f.vsidx
