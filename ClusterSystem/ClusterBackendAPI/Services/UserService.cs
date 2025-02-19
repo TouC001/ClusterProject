@@ -150,28 +150,6 @@ namespace ClusterBackendAPI.Services
             }).ToList();
         }
 
-        public UserRegistrationDTO UserRegistration(UserRegistrationDTO userRegistrationDTO)
-        {
-            if (userRegistrationDTO == null)
-                throw new ArgumentNullException(nameof(userRegistrationDTO));
-
-            if (string.IsNullOrWhiteSpace(userRegistrationDTO.Password) ||
-                userRegistrationDTO.Password != userRegistrationDTO.ConfirmPassword)
-            {
-                throw new ArgumentException("Passwords do not match.");
-            }
-
-            _repository.UserRegister(userRegistrationDTO);
-
-            return new UserRegistrationDTO()
-            {
-                FirstName = userRegistrationDTO.FirstName,
-                LastName = userRegistrationDTO.LastName,
-                UserName= userRegistrationDTO.UserName,
-                Email = userRegistrationDTO.Email,
-            };
-        }
-
         #endregion
     }
 }

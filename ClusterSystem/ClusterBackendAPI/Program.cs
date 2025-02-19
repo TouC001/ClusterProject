@@ -3,6 +3,7 @@ using ClusterBackendAPI.Services.Repo;
 using ClusterBackendAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Identity;
 
 internal class Program
 {
@@ -35,6 +36,9 @@ internal class Program
         builder.Services.AddControllers();
         builder.Services.AddScoped<Repository>();
         builder.Services.AddScoped<UserService>();
+        builder.Services.AddScoped<UserAthenticationService>();
+        builder.Services.AddScoped<IPasswordHasher<ClusterBackendAPI.Models.User>, PasswordHasher<ClusterBackendAPI.Models.User>>();
+
 
         builder.Services.AddSwaggerGen(options =>
         {

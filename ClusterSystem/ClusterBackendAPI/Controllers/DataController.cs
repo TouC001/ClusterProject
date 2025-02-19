@@ -162,12 +162,12 @@ namespace ClusterBackendAPI.Controllers
         {
             try
             {
-               if (roleDTO == null)
+                if (roleDTO == null)
                 {
                     throw new Exception("RoleDTO information is empty.");
                 }
 
-               Role existingRole = _userService.GetRoles().FirstOrDefault(r => r.Name == roleDTO.Name);
+                Role existingRole = _userService.GetRoles().FirstOrDefault(r => r.Name == roleDTO.Name);
 
                 if (existingRole != null)
                 {
@@ -210,5 +210,6 @@ namespace ClusterBackendAPI.Controllers
         }
 
         #endregion
+
     }
 }
