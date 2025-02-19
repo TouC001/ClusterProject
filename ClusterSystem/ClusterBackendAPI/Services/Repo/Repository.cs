@@ -112,16 +112,6 @@ namespace ClusterBackendAPI.Services.Repo
         }
 
         /// <summary>
-        /// Adds a new user to the database.
-        /// </summary>
-        /// <param name="user">The new User being added.</param>
-        public void AddUser(User user)
-        {
-            _context.Users.Add(user);
-            _context.SaveChanges();
-        }
-
-        /// <summary>
         /// Removes a user from the database.
         /// </summary>
         /// <param name="user">The user being removed.</param>

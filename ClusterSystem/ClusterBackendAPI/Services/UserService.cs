@@ -81,6 +81,11 @@ namespace ClusterBackendAPI.Services
 
         #region Users
 
+        /// <summary>
+        /// Gets a User by its ID with its User Roles.
+        /// </summary>
+        /// <param name="userId">The Id tied to the User.</param>
+        /// <returns>The User Object or Null.</returns>
         public UserResponseDTO GetUserById(int userId)
         {
             User user = _repository.GetUserById(userId);
@@ -92,7 +97,7 @@ namespace ClusterBackendAPI.Services
                     Id = user.Id,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
-                    Username = user.Username,
+                    UserName = user.UserName,
                     Email = user.Email,
                     userRoleDTOs = user.userRoles.Select(ur => new UserRoleDTO
                     {
@@ -109,6 +114,62 @@ namespace ClusterBackendAPI.Services
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Gets all users and their User Role.
+        /// </summary>
+        /// <returns></returns>
+        public List<UserResponseDTO> GetUsers()
+        {
+            List<User> users = _repository.GetUsers().ToList();
+
+            if (!users.Any())
+            {
+                return new List<UserResponseDTO>(); // Just going to return an emtpy list.
+            }
+
+            return users.Select(user => new UserResponseDTO()
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                UserName = user.UserName,
+                Email = user.Email,
+                userRoleDTOs = user.userRoles.Select(ur => new UserRoleDTO
+                {
+                    Id = ur.Id,
+                    RoleId = ur.RoleId,
+                    UserId = ur.UserId,
+                    RoleDTO = new RoleDTO
+                    {
+                        Id = ur.Role.Id,
+                        Name = ur.Role.Name
+                    }
+                }).ToList()
+            }).ToList();
+        }
+
+        public UserRegistrationDTO UserRegistration(UserRegistrationDTO userRegistrationDTO)
+        {
+            if (userRegistrationDTO == null)
+                throw new ArgumentNullException(nameof(userRegistrationDTO));
+
+            if (string.IsNullOrWhiteSpace(userRegistrationDTO.Password) ||
+                userRegistrationDTO.Password != userRegistrationDTO.ConfirmPassword)
+            {
+                throw new ArgumentException("Passwords do not match.");
+            }
+
+            _repository.UserRegister(userRegistrationDTO);
+
+            return new UserRegistrationDTO()
+            {
+                FirstName = userRegistrationDTO.FirstName,
+                LastName = userRegistrationDTO.LastName,
+                UserName= userRegistrationDTO.UserName,
+                Email = userRegistrationDTO.Email,
+            };
         }
 
         #endregion
