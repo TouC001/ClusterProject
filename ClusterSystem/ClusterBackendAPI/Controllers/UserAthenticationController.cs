@@ -36,5 +36,26 @@ namespace ClusterBackendAPI.Controllers
                 return BadRequest(new ApiResponse<string>(ex.Message));
             }
         }
+
+        [HttpPost]
+        [Route("Login")]
+        public IActionResult UserLogin(UserLoginDTO userLoginDTO)
+        {
+            try
+            {
+                if (userLoginDTO == null)
+                {
+                    return BadRequest(new ApiResponse<string>("Username or Email does not exit."));
+                }
+
+                _userAthenticationService.UserLogin(userLoginDTO);
+
+                return Ok(new ApiResponse<string>("User login was successful."));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ApiResponse<string>(ex.Message));
+            }
+        }
     }
 }
