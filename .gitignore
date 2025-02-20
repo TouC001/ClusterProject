@@ -56,3 +56,9 @@ docker-compose.override.yml
 *.DotSettings.user
 ClusterSystem/.vs/ClusterBackendAPI/FileContentIndex/33c943c7-91b7-4bf1-93a2-6178cb1cdba5.vsidx
 ClusterSystem/.vs/ClusterBackendAPI/FileContentIndex/485c3085-777a-4025-9306-b297a3d1d67f.vsidx
+ClusterSystem/ClusterAPILibrary/obj/ClusterAPILibrary.csproj.nuget.dgspec.json
+ClusterSystem/ClusterAPILibrary/obj/ClusterAPILibrary.csproj.nuget.g.props
+ClusterSystem/ClusterAPILibrary/obj/project.assets.json
+ClusterSystem/ClusterAPILibrary/obj/project.nuget.cache
+ClusterSystem/ClusterBackendAPI/obj/
+ClusterSystem/.vs/
