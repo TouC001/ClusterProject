@@ -13,11 +13,20 @@ internal class Program
 
         var builder = WebApplication.CreateBuilder(args);
 
+        // Load environment variable for JWT Secret
+        var jwtSecret = Environment.GetEnvironmentVariable("JWT_SECRET");
+        if (string.IsNullOrEmpty(jwtSecret))
+        {
+            throw new Exception("JWT Secret is missing.");
+        }
+
         // Configure logging
         builder.Logging.ClearProviders();
         builder.Logging.AddConsole();
         builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
 
+        // Override JWT secret in the configuration
+        builder.Configuration["Jwt:Secret"] = jwtSecret;
 
         builder.Services.AddCors(options =>
         {
