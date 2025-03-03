@@ -13,6 +13,6 @@ namespace ClusterBackendAPI.Models
         public string ban_reason { get; set; }
         public DateTime ban_until { get; set; }
         public string PasswordHash { get; set; }
-        public List<UserRole> userRoles { get; set; }
+        public ICollection<UserRole> userRoles { get; set; }
     }
 }

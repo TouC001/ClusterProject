@@ -8,7 +8,7 @@
         public string Comments { get; set; }
         public int? ParentCommentId { get; set; }
         public DateTime CreatedAt { get; set; }
-        public List<Comment> Replies { get; set; }
+        public ICollection<Comment> Replies { get; set; }
 
         // Vote counts for comments
         public int Upvotes { get; set; }

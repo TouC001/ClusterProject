@@ -17,7 +17,7 @@
         public User User { get; set; }
 
         // Navigation Property (One Post has Many Comments)
-        public List<Comment> Comments { get; set; } = new List<Comment>();
+        public ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
         public ICollection<Vote> Votes { get; set; }
     }
