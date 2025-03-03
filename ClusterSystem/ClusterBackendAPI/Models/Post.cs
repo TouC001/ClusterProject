@@ -10,6 +10,15 @@
         public string? ExternalLink { get; set; }
         public string CreatedAt { get; set; }
 
+        // Vote counts for Posts
+        public int Upvotes { get; set; }
+        public int Downvotes { get; set; }
+
         public User User { get; set; }
+
+        // Navigation Property (One Post has Many Comments)
+        public List<Comment> Comments { get; set; } = new List<Comment>();
+
+        public ICollection<Vote> Votes { get; set; }
     }
 }

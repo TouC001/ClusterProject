@@ -10,8 +10,14 @@
         public DateTime CreatedAt { get; set; }
         public List<Comment> Replies { get; set; }
 
+        // Vote counts for comments
+        public int Upvotes { get; set; }
+        public int Downvotes { get; set; }
+
         public Post Post { get; set; }
         public User User { get; set; }
         public Comment ParentComment { get; set; }
+
+        public ICollection<Vote> Votes { get; set; }
     }
 }

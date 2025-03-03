@@ -29,11 +29,50 @@ namespace ClusterBackendAPI.DataContext
                 .WithMany(u => u.userRoles)
                 .HasForeignKey(ur => ur.UserId);
 
+
             // UserRole has one Role, Role can be referenced by many UserRoles
             modelBuilder.Entity<UserRole>()
                 .HasOne(ur => ur.Role)
                 .WithMany(r => r.userRoles)
                 .HasForeignKey(ur => ur.RoleId);
+
+            // Comment belongs to a User
+            modelBuilder.Entity<Comment>()
+                .HasOne(ur => ur.User)
+                .WithMany()
+                .HasForeignKey(c => c.UserId);
+
+            // Post has many comments, Comments belong to one Post
+            modelBuilder.Entity<Comment>()
+                .HasOne(c => c.Post)
+                .WithMany(p => p.Comments)
+                .HasForeignKey(c => c.PostId);
+
+            // Vote belongs to a User (many votes per user)
+            modelBuilder.Entity<Vote>()
+                .HasOne(v => v.User)
+                .WithMany()
+                .HasForeignKey(v => v.UserId);
+
+            // Vote belongs to a Post (many votes per post)
+            modelBuilder.Entity<Vote>()
+                .HasOne(v => v.Post)
+                .WithMany(p => p.Votes)
+                .HasForeignKey(v => v.PostId)
+                .OnDelete(DeleteBehavior.Cascade); // Ensure cascading delete
+
+            // Vote belongs to a Comment (many votes per comment)
+            modelBuilder.Entity<Vote>()
+                .HasOne(v => v.Comment)
+                .WithMany(c => c.Votes)
+                .HasForeignKey(v => v.CommentId)
+                .OnDelete(DeleteBehavior.Cascade); // Ensure cascading delete
+
+            // Configure unique constraints to ensure no duplicate votes for same user on post/comment
+            modelBuilder.Entity<Vote>()
+                .HasIndex(v => new { v.UserId, v.PostId }).IsUnique();
+            modelBuilder.Entity<Vote>()
+                .HasIndex(v => new { v.UserId, v.CommentId }).IsUnique();
         }
         
     }
