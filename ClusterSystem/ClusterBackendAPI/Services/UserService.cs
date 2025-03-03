@@ -95,8 +95,6 @@ namespace ClusterBackendAPI.Services
                 return new UserResponseDTO
                 {
                     Id = user.Id,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
                     UserName = user.UserName,
                     Email = user.Email,
                     userRoleDTOs = user.userRoles.Select(ur => new UserRoleDTO
@@ -132,8 +130,6 @@ namespace ClusterBackendAPI.Services
             return users.Select(user => new UserResponseDTO()
             {
                 Id = user.Id,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
                 UserName = user.UserName,
                 Email = user.Email,
                 userRoleDTOs = user.userRoles.Select(ur => new UserRoleDTO

@@ -45,17 +45,17 @@ namespace ClusterBackendAPI.Services
                 throw new InvalidOperationException("Email already exits.");
             }
 
-            userRegistrationDTO.UserName = GenerateUniqueUserName(userRegistrationDTO.FirstName);
+            userRegistrationDTO.UserName = GenerateUniqueUserName("Enjoyer");
 
             _repository.UserRegister(userRegistrationDTO);
 
             return new UserRegistrationDTO()
             {
-                FirstName = userRegistrationDTO.FirstName,
-                LastName = userRegistrationDTO.LastName,
                 UserName = userRegistrationDTO.UserName,
                 Email = userRegistrationDTO.Email,
-                userRoleDTO = userRegistrationDTO.userRoleDTO
+                Is_banned = userRegistrationDTO.Is_banned,
+                userRoleDTO = userRegistrationDTO.userRoleDTO,
+                
             };
         }
 
@@ -122,13 +122,13 @@ namespace ClusterBackendAPI.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        private string GenerateUniqueUserName(string firstName)
+        private string GenerateUniqueUserName(string enjoyer)
         {
             string userName;
             Random random = new Random();
             do
             {
-                userName = $"{firstName}{random.Next(100000, 999999)}";
+                userName = $"{enjoyer}{random.Next(100000, 999999)}";
             } while (_repository.GetUsers().Any(u => u.UserName == userName));
 
             return userName;

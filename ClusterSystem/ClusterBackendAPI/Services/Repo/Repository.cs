@@ -145,10 +145,9 @@ namespace ClusterBackendAPI.Services.Repo
         {
             User user = new User
             {
-                FirstName = userRegistrationDTO.FirstName,
-                LastName = userRegistrationDTO.LastName,
                 UserName = userRegistrationDTO.UserName,
                 Email = userRegistrationDTO.Email,
+                is_banned = false,
                 PasswordHash = _passwordHasher.HashPassword(null, userRegistrationDTO.Password)
             };
 

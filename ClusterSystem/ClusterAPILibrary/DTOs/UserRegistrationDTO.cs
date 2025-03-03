@@ -4,8 +4,6 @@ namespace ClusterAPILibrary.DTOs
 {
     public class UserRegistrationDTO
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
         public string? UserName { get; set; }
 
         [DataType(DataType.EmailAddress)]
@@ -21,6 +19,8 @@ namespace ClusterAPILibrary.DTOs
         public string ConfirmPassword { get; set; }
 
         public UserRoleDTO? userRoleDTO { get; set; }
+
+        public bool Is_banned { get; set; }
 
         public UserRegistrationDTO()
         {
