@@ -1,4 +1,5 @@
-﻿using ClusterAPILibrary.DTOs;
+﻿using ClusterAPILibrary;
+using ClusterAPILibrary.DTOs;
 using ClusterBackendAPI.Models;
 using ClusterBackendAPI.Services.Repo;
 
@@ -97,6 +98,7 @@ namespace ClusterBackendAPI.Services
                     Id = user.Id,
                     UserName = user.UserName,
                     Email = user.Email,
+                    Is_banned = user.is_banned,
                     userRoleDTOs = user.userRoles.Select(ur => new UserRoleDTO
                     {
                         Id = ur.Id,
@@ -144,6 +146,30 @@ namespace ClusterBackendAPI.Services
                     }
                 }).ToList()
             }).ToList();
+        }
+
+        /// <summary>
+        /// Updates a User in the Database.
+        /// </summary>
+        /// <param name="userResponseDTO"> DTO that has the updated user information. </param>
+        public void UpdateUser(UserResponseDTO userResponseDTO)
+        {
+            if (userResponseDTO == null)
+            {
+                throw new ArgumentNullException(nameof(userResponseDTO), "User data must not be null.");
+            }
+
+            User user = _repository.GetUserById(userResponseDTO.Id);
+
+            if (user == null)
+            {
+                throw new KeyNotFoundException($"User with ID {userResponseDTO.Id} could not be found.");
+            }
+
+            user.UserName = userResponseDTO.UserName;
+            user.Email = userResponseDTO.Email;
+
+            _repository.UpdateUser(user);
         }
 
         #endregion

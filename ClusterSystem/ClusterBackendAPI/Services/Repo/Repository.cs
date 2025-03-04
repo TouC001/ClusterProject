@@ -112,25 +112,13 @@ namespace ClusterBackendAPI.Services.Repo
         }
 
         /// <summary>
-        /// Removes a user from the database.
-        /// </summary>
-        /// <param name="user">The user being removed.</param>
-        public void RemoveUser(User user)
-        {
-            _context.Users.Remove(user);
-            _context.SaveChanges();
-        }
-
-        /// <summary>
         /// Updates a User in the database.
         /// </summary>
         /// <param name="userUpdateDTO">The new user information.</param>
-        /// <returns>A user with updated values.</returns>
-        public User UpdateUser(User user)
+        public void UpdateUser(User user)
         {
             _context.Users.Update(user);
             _context.SaveChanges();
-            return user;
         }
 
         #endregion
@@ -153,13 +141,24 @@ namespace ClusterBackendAPI.Services.Repo
 
             _context.Users.Add(user);
             _context.SaveChanges();
+
+            // Always assign "Enjoyer" role (RoleId = 3)
+            const int enjoyerRoleId = 3;
+
+            UserRole userRole = new UserRole()
+            {
+                UserId = user.Id,
+                RoleId = enjoyerRoleId
+            };
+
+            _context.UserRoles.Add(userRole);
+            _context.SaveChanges();
         }
 
         /// <summary>
         /// Login a user to the database.
         /// </summary>
-        /// <param name="userLoginDTO"></param>
-        /// <returns></returns>
+        /// <param name="userLoginDTO">User Login Details.</param>
         public User UserLogin(UserLoginDTO userLoginDTO)
         {
             User user = _context.Users.FirstOrDefault(u => u.UserName == userLoginDTO.UserName || u.Email == userLoginDTO.Email);

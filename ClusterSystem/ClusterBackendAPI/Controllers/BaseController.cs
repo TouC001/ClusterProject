@@ -5,11 +5,11 @@ namespace ClusterBackendAPI.Controllers
 {
     public abstract class BaseController : ControllerBase
     {
-        protected readonly UserService _userService;
+        protected readonly UserService _userServices;
 
-        public BaseController(UserService userService)
+        public BaseController(UserService userServices)
         {
-            _userService = userService;
+            _userServices = userServices;
         }
     }
 }

@@ -9,12 +9,12 @@ namespace ClusterBackendAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DataController : BaseController
+    public class UserController : BaseController
     {
         private readonly UserService _userServices;
-        public DataController(UserService userService) : base(userService)
+        public UserController(UserService userServices) : base(userServices)
         {
-            _userServices = userService;
+            _userServices = userServices;
         }
 
         [HttpGet]
@@ -53,7 +53,7 @@ namespace ClusterBackendAPI.Controllers
         {
             try
             {
-                Role role = _userService.GetRoleById(id);
+                Role role = _userServices.GetRoleById(id);
 
                 if (role == null)
                 {
@@ -84,7 +84,7 @@ namespace ClusterBackendAPI.Controllers
         {
             try
             {
-                IEnumerable<Role> roles = _userService.GetRoles();
+                IEnumerable<Role> roles = _userServices.GetRoles();
 
                 if (roles == null || !roles.Any())
                 {
@@ -101,7 +101,7 @@ namespace ClusterBackendAPI.Controllers
                         Name = role.Name
                     });
                 }
-                return Ok(new ApiResponse<List<RoleDTO>>(roleDTOs));
+                return Ok(new ApiResponse<List<RoleDTO>>(roleDTOs, "Successfully retrieve role list."));
             }
             catch (Exception ex)
             {
@@ -125,7 +125,7 @@ namespace ClusterBackendAPI.Controllers
                     throw new Exception("RoleDTO information is empty.");
                 }
 
-                Role existingRole = _userService.GetRoles().FirstOrDefault(r => r.Id == roleDTO.Id);
+                Role existingRole = _userServices.GetRoles().FirstOrDefault(r => r.Id == roleDTO.Id);
 
                 if (existingRole == null)
                 {
@@ -134,14 +134,14 @@ namespace ClusterBackendAPI.Controllers
 
                 if (existingRole.Name != roleDTO.Name)
                 {
-                    Role conflictingRole = _userService.GetRoles().FirstOrDefault(r => r.Name == roleDTO.Name);
+                    Role conflictingRole = _userServices.GetRoles().FirstOrDefault(r => r.Name == roleDTO.Name);
                     if (conflictingRole != null)
                     {
                         return Conflict(new ApiResponse<string>("Role with that name already exists."));
                     }
                 }
 
-                _userService.UpdateRole(roleDTO);
+                _userServices.UpdateRole(roleDTO);
 
                 return Ok(new ApiResponse<string>("Role was successfully updated."));
             }
@@ -167,14 +167,14 @@ namespace ClusterBackendAPI.Controllers
                     throw new Exception("RoleDTO information is empty.");
                 }
 
-                Role existingRole = _userService.GetRoles().FirstOrDefault(r => r.Name == roleDTO.Name);
+                Role existingRole = _userServices.GetRoles().FirstOrDefault(r => r.Name == roleDTO.Name);
 
                 if (existingRole != null)
                 {
                     throw new Exception("Role with that name already exists.");
                 }
 
-                _userService.AddRole(roleDTO);
+                _userServices.AddRole(roleDTO);
 
                 return Ok(new ApiResponse<string>("Role added successfully."));
             }
@@ -194,14 +194,59 @@ namespace ClusterBackendAPI.Controllers
         {
             try
             {
-                UserResponseDTO user = _userService.GetUserById(userId);
+                UserResponseDTO user = _userServices.GetUserById(userId);
 
                 if (user == null)
                 {
                     return NotFound(new ApiResponse<string>("User was not found."));
                 }
 
-                return Ok(new ApiResponse<UserResponseDTO>(user));
+                return Ok(new ApiResponse<UserResponseDTO>(user, "Successfully"));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ApiResponse<string>(ex.Message));
+            }
+        }
+
+        [HttpGet]
+        [Route("GetUsers")]
+        public IActionResult GetUsers()
+        {
+            try
+            {
+                List<UserResponseDTO> users = _userServices.GetUsers();
+
+                if (!users.Any())
+                {
+                    return NotFound(new ApiResponse<string>("Could not get list of Users."));
+                }
+
+                return Ok(new ApiResponse<List<UserResponseDTO>>(users));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ApiResponse<string>(ex.Message));
+            }
+        }
+
+        [HttpPost]
+        [Route("UpdateUser")]
+        public IActionResult UpdateUser(UserResponseDTO userResponseDTO)
+        {
+            try
+            {
+                UserResponseDTO user = _userServices.GetUserById(userResponseDTO.Id);
+
+                if (user == null)
+                {
+                    return NotFound(new ApiResponse<string>("User was not found."));
+                }
+
+                _userServices.UpdateUser(userResponseDTO);
+
+                return Ok(new ApiResponse<string>("User was updated successfully."));
+
             }
             catch (Exception ex)
             {

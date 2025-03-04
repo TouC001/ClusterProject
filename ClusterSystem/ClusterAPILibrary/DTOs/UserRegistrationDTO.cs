@@ -21,17 +21,5 @@ namespace ClusterAPILibrary.DTOs
         public UserRoleDTO? userRoleDTO { get; set; }
 
         public bool Is_banned { get; set; }
-
-        public UserRegistrationDTO()
-        {
-            userRoleDTO = new UserRoleDTO()
-            {
-                RoleId = 3,
-                RoleDTO = new RoleDTO()
-                {
-                    Name = "Enjoryer"
-                }
-            };
-        }
     }
 }
