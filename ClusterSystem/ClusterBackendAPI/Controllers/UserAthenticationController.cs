@@ -2,18 +2,23 @@
 using ClusterAPILibrary;
 using ClusterBackendAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using ClusterBackendAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ClusterBackendAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserAthenticationController : ControllerBase
+    public class UserAthenticationController : BaseController
     {
         private readonly UserAthenticationService _userAthenticationService;
+        private readonly UserService _userService;
 
-        public UserAthenticationController(UserAthenticationService userAthenticationService)
+        public UserAthenticationController(UserAthenticationService userAthenticationService, UserService userService) :base(userService)
         {
             _userAthenticationService = userAthenticationService;
+            _userService = userService;
         }
 
         [HttpPost]
@@ -48,9 +53,41 @@ namespace ClusterBackendAPI.Controllers
                     return BadRequest(new ApiResponse<string>("Username or Email does not exit."));
                 }
 
-                _userAthenticationService.UserLogin(userLoginDTO);
+                UserLoginDTO userlogin =  _userAthenticationService.UserLogin(userLoginDTO);
 
-                return Ok(new ApiResponse<string>("User login was successful."));
+                return Ok(new ApiResponse<UserLoginDTO>(userlogin, "User login was successful."));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ApiResponse<string>(ex.Message));
+            }
+        }
+
+        [Authorize]
+        [HttpPut]
+        [Route("UpdatePassword")]
+        public async Task<IActionResult> UpdatePassword(PasswordUpdateDTO passwordUpdateDTO)
+        {
+            try
+            {
+                string userName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+                if (string.IsNullOrEmpty(userName))
+                {
+                    return Unauthorized("Invalid username.");
+                }
+                UserResponseDTO userExists = await _userService.GetUserByNameAsync(userName);
+
+                //UserResponseDTO userExists = await _userService.GetUserByIdAsync(userId);
+
+                if (userExists == null)
+                {
+                    return BadRequest($"User with user name: {userName} not found.");
+                }
+
+                await _userAthenticationService.UpdatePasswordAsync(passwordUpdateDTO, userName);
+
+                return Ok(new ApiResponse<string>("Password Successfully Updated."));
             }
             catch (Exception ex)
             {

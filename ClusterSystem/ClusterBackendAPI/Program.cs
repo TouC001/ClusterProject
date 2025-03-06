@@ -1,9 +1,12 @@
 using ClusterBackendAPI.DataContext;
-using ClusterBackendAPI.Services.Repo;
 using ClusterBackendAPI.Services;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
+using ClusterBackendAPI.Services.Repo;
+using Microsoft.AspNetCore.Authentication.JwtBearer;  // <-- Correct namespace
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Text;
 
 internal class Program
 {
@@ -19,6 +22,8 @@ internal class Program
         {
             throw new Exception("JWT Secret is missing.");
         }
+
+        //var _jwtLifespans = int.Parse(configuration["Jwt:Lifespan"]);
 
         // Configure logging
         builder.Logging.ClearProviders();
@@ -48,7 +53,25 @@ internal class Program
         builder.Services.AddScoped<UserAthenticationService>();
         builder.Services.AddScoped<IPasswordHasher<ClusterBackendAPI.Models.User>, PasswordHasher<ClusterBackendAPI.Models.User>>();
 
+        // Add Authentication
+        builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.RequireHttpsMetadata = false;  // Set to false if testing locally
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = "https://localhost:7142",  // Ensure this matches the token issuer
+            ValidAudience = "https://localhost:7142", // Ensure this matches the token audience
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret))
+        };
+    });
 
+        // Add Swagger
         builder.Services.AddSwaggerGen(options =>
         {
             options.SwaggerDoc("v1", new OpenApiInfo { Title = "Cluster API", Version = "v1" });
@@ -62,7 +85,7 @@ internal class Program
         app.UseSwaggerUI(c =>
         {
             c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cluster API v1");
-            c.RoutePrefix = string.Empty; 
+            c.RoutePrefix = string.Empty;
         });
 
         // Configure the HTTP request pipeline.
@@ -71,9 +94,9 @@ internal class Program
         }
 
         app.UseHttpsRedirection();
-
         app.UseCors(MyAllowSpecificOrigins);
 
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapControllers();

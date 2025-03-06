@@ -87,9 +87,38 @@ namespace ClusterBackendAPI.Services
         /// </summary>
         /// <param name="userId">The Id tied to the User.</param>
         /// <returns>The User Object or Null.</returns>
-        public UserResponseDTO GetUserById(int userId)
+        public async Task<UserResponseDTO> GetUserByIdAsync(int userId)
         {
-            User user = _repository.GetUserById(userId);
+            User user = await _repository.GetUserByIdAsync(userId);
+
+            if (user != null)
+            {
+                return new UserResponseDTO
+                {
+                    Id = user.Id,
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    Is_banned = user.is_banned,
+                    userRoleDTOs = user.userRoles.Select(ur => new UserRoleDTO
+                    {
+                        Id = ur.Id,
+                        RoleId = ur.RoleId,
+                        UserId = ur.UserId,
+                        RoleDTO = new RoleDTO
+                        {
+                            Id = ur.Role.Id,
+                            Name = ur.Role.Name
+                        }
+                    }).ToList()
+                };
+            }
+
+            return null;
+        }
+
+        public async Task<UserResponseDTO> GetUserByNameAsync(string name)
+        {
+            User user = await _repository.GetUserByNameAsync(name);
 
             if (user != null)
             {
@@ -152,14 +181,14 @@ namespace ClusterBackendAPI.Services
         /// Updates a User in the Database.
         /// </summary>
         /// <param name="userResponseDTO"> DTO that has the updated user information. </param>
-        public void UpdateUser(UserResponseDTO userResponseDTO)
+        public async Task UpdateUser(UserResponseDTO userResponseDTO)
         {
             if (userResponseDTO == null)
             {
                 throw new ArgumentNullException(nameof(userResponseDTO), "User data must not be null.");
             }
 
-            User user = _repository.GetUserById(userResponseDTO.Id);
+            User user = await _repository.GetUserByIdAsync(userResponseDTO.Id);
 
             if (user == null)
             {

@@ -91,12 +91,20 @@ namespace ClusterBackendAPI.Services.Repo
         /// </summary>
         /// <param name="id">The ID related to the User.</param>
         /// <returns>A user object.</returns>
-        public User GetUserById(int id)
+        public async Task<User> GetUserByIdAsync(int userId)
         {
-            return _context.Users
+            return await _context.Users
                                .Include(u => u.userRoles)
                                .ThenInclude(ur => ur.Role)
-                               .FirstOrDefault(u => u.Id == id);
+                               .FirstOrDefaultAsync(u => u.Id == userId);
+        }
+
+        public async Task<User> GetUserByNameAsync(string name)
+        {
+            return await _context.Users
+                               .Include(u => u.userRoles)
+                               .ThenInclude(ur => ur.Role)
+                               .FirstOrDefaultAsync(u => u.UserName == name);
         }
 
         /// <summary>
@@ -174,6 +182,36 @@ namespace ClusterBackendAPI.Services.Repo
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Updating A Users password and saving it.
+        /// </summary>
+        /// <param name="passwordUpdateDTO">Contains the </param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        /// <exception cref="UnauthorizedAccessException"></exception>
+        public async Task PasswordUpdateAsync(PasswordUpdateDTO passwordUpdateDTO, string name)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == name);
+
+            if (user != null)
+            {
+                PasswordVerificationResult result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, passwordUpdateDTO.CurrentPassword);
+
+                if (result != PasswordVerificationResult.Success)
+                {
+                    throw new UnauthorizedAccessException("Current password was incorrect.");
+                }
+
+                if (passwordUpdateDTO.NewPassword == passwordUpdateDTO.ConfirmNewPassword)
+                {
+                    user.PasswordHash = _passwordHasher.HashPassword(user, passwordUpdateDTO.NewPassword);
+
+                    _context.Users.Update(user);
+                    _context.SaveChangesAsync();
+                }
+            }
         }
 
         #endregion

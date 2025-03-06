@@ -1,6 +1,8 @@
 ﻿using ClusterAPILibrary.DTOs;
 using ClusterBackendAPI.Models;
 using ClusterBackendAPI.Services.Repo;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -100,13 +102,31 @@ namespace ClusterBackendAPI.Services
             }
         }
 
+        public async Task UpdatePasswordAsync(PasswordUpdateDTO passwordUpdateDTO, string name)
+        {
+            try
+            {
+                if (passwordUpdateDTO == null || name == "")
+                {
+                    throw new InvalidOperationException("Something is null;");
+                }
+                await _repository.PasswordUpdateAsync(passwordUpdateDTO, name);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error logging in UpdatePassword: {ex.Message}");
+                throw;
+            }
+        }
+
         #region Helper Methods
         private string GenerateJwtToken(User user)
         {
             var claims = new[]
             {
             new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSecret));

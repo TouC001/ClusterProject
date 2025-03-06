@@ -190,11 +190,11 @@ namespace ClusterBackendAPI.Controllers
 
         [HttpGet]
         [Route("GetUser")]
-        public IActionResult GetUser(int userId)
+        public async Task<IActionResult> GetUser(int userId)
         {
             try
             {
-                UserResponseDTO user = _userServices.GetUserById(userId);
+                UserResponseDTO user = await _userServices.GetUserByIdAsync(userId);
 
                 if (user == null)
                 {
@@ -230,13 +230,13 @@ namespace ClusterBackendAPI.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("UpdateUser")]
-        public IActionResult UpdateUser(UserResponseDTO userResponseDTO)
+        public async Task<IActionResult> UpdateUser(UserResponseDTO userResponseDTO)
         {
             try
             {
-                UserResponseDTO user = _userServices.GetUserById(userResponseDTO.Id);
+                UserResponseDTO user = await _userServices.GetUserByIdAsync(userResponseDTO.Id);
 
                 if (user == null)
                 {
