@@ -116,42 +116,13 @@ namespace ClusterBackendAPI.Services
             return null;
         }
 
-        public async Task<UserResponseDTO> GetUserByNameAsync(string name)
-        {
-            User user = await _repository.GetUserByNameAsync(name);
-
-            if (user != null)
-            {
-                return new UserResponseDTO
-                {
-                    Id = user.Id,
-                    UserName = user.UserName,
-                    Email = user.Email,
-                    Is_banned = user.is_banned,
-                    userRoleDTOs = user.userRoles.Select(ur => new UserRoleDTO
-                    {
-                        Id = ur.Id,
-                        RoleId = ur.RoleId,
-                        UserId = ur.UserId,
-                        RoleDTO = new RoleDTO
-                        {
-                            Id = ur.Role.Id,
-                            Name = ur.Role.Name
-                        }
-                    }).ToList()
-                };
-            }
-
-            return null;
-        }
-
         /// <summary>
         /// Gets all users and their User Role.
         /// </summary>
-        /// <returns></returns>
-        public List<UserResponseDTO> GetUsers()
+        /// <returns>A list of UserResponseDTO objects.</returns>
+        public async Task<List<UserResponseDTO>> GetUsersAsync()
         {
-            List<User> users = _repository.GetUsers().ToList();
+            List<User> users = await _repository.GetUsersAsync();
 
             if (!users.Any())
             {
@@ -195,10 +166,22 @@ namespace ClusterBackendAPI.Services
                 throw new KeyNotFoundException($"User with ID {userResponseDTO.Id} could not be found.");
             }
 
+            if (user.Email == userResponseDTO.Email && user.UserName == userResponseDTO.UserName)
+            {
+                return;
+            }
+
+            List<User> existingUser = await _repository.GetUsersAsync(userResponseDTO.Email, userResponseDTO.UserName);
+
+            if (existingUser.Any())
+            {
+                throw new KeyNotFoundException($"A user with the email {userResponseDTO.Email} or username {userResponseDTO.UserName} already exists.");
+            }
+
+            // Update user data
             user.UserName = userResponseDTO.UserName;
             user.Email = userResponseDTO.Email;
-
-            _repository.UpdateUser(user);
+            await _repository.UpdateUserAsync(user);
         }
 
         #endregion

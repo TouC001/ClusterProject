@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using ClusterBackendAPI.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace ClusterBackendAPI.Controllers
 {
@@ -55,6 +56,11 @@ namespace ClusterBackendAPI.Controllers
 
                 UserLoginDTO userlogin =  _userAthenticationService.UserLogin(userLoginDTO);
 
+                if (userlogin == null)
+                {
+                    return BadRequest(new ApiResponse<string>("Username or Email does not exit."));
+                }
+
                 return Ok(new ApiResponse<UserLoginDTO>(userlogin, "User login was successful."));
             }
             catch (Exception ex)
@@ -70,22 +76,21 @@ namespace ClusterBackendAPI.Controllers
         {
             try
             {
-                string userName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                string userStringId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-                if (string.IsNullOrEmpty(userName))
+                if (!int.TryParse(userStringId, out int userId))
                 {
-                    return Unauthorized("Invalid username.");
+                    return Unauthorized(new ApiResponse<string>("Invalid User Id."));
                 }
-                UserResponseDTO userExists = await _userService.GetUserByNameAsync(userName);
 
-                //UserResponseDTO userExists = await _userService.GetUserByIdAsync(userId);
+                UserResponseDTO userExists = await _userService.GetUserByIdAsync(userId);
 
                 if (userExists == null)
                 {
-                    return BadRequest($"User with user name: {userName} not found.");
+                    return BadRequest($"User with user id: {userId} not found.");
                 }
 
-                await _userAthenticationService.UpdatePasswordAsync(passwordUpdateDTO, userName);
+                await _userAthenticationService.UpdatePasswordAsync(passwordUpdateDTO, userId);
 
                 return Ok(new ApiResponse<string>("Password Successfully Updated."));
             }

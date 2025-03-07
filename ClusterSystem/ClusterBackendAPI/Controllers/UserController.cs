@@ -3,6 +3,7 @@ using ClusterAPILibrary.DTOs;
 using ClusterBackendAPI.DataContext;
 using ClusterBackendAPI.Models;
 using ClusterBackendAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClusterBackendAPI.Controllers
@@ -230,6 +231,7 @@ namespace ClusterBackendAPI.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut]
         [Route("UpdateUser")]
         public async Task<IActionResult> UpdateUser(UserResponseDTO userResponseDTO)

@@ -99,6 +99,11 @@ namespace ClusterBackendAPI.Services.Repo
                                .FirstOrDefaultAsync(u => u.Id == userId);
         }
 
+        /// <summary>
+        /// Gets a User by Username.
+        /// </summary>
+        /// <param name="name">The Username of the User.</param>
+        /// <returns>A User object.</returns>
         public async Task<User> GetUserByNameAsync(string name)
         {
             return await _context.Users
@@ -111,22 +116,34 @@ namespace ClusterBackendAPI.Services.Repo
         /// Get Users from the database.
         /// </summary>
         /// <returns>A list of Users along with there Roles.</returns>
-        public IEnumerable<User> GetUsers()
+        public async Task<List<User>> GetUsersAsync(string email = null, string name = null)
         {
-            return _context.Users
+            var query = _context.Users.AsQueryable();
+
+            if (!string.IsNullOrEmpty(email))
+            {
+                query = query.Where(u => u.Email == email);
+            }
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(u => u.UserName == name);
+            }
+
+            return await query
                                .Include(u => u.userRoles)
                                .ThenInclude(ur => ur.Role)
-                               .ToList();
+                               .ToListAsync();
         }
 
         /// <summary>
         /// Updates a User in the database.
         /// </summary>
         /// <param name="userUpdateDTO">The new user information.</param>
-        public void UpdateUser(User user)
+        public async Task UpdateUserAsync(User user)
         {
             _context.Users.Update(user);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         #endregion
@@ -167,9 +184,9 @@ namespace ClusterBackendAPI.Services.Repo
         /// Login a user to the database.
         /// </summary>
         /// <param name="userLoginDTO">User Login Details.</param>
-        public User UserLogin(UserLoginDTO userLoginDTO)
+        public async Task<User> UserLoginAsync(UserLoginDTO userLoginDTO)
         {
-            User user = _context.Users.FirstOrDefault(u => u.UserName == userLoginDTO.UserName || u.Email == userLoginDTO.Email);
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == userLoginDTO.UserName || u.Email == userLoginDTO.Email);
 
             if (user != null)
             {
@@ -188,12 +205,10 @@ namespace ClusterBackendAPI.Services.Repo
         /// Updating A Users password and saving it.
         /// </summary>
         /// <param name="passwordUpdateDTO">Contains the </param>
-        /// <param name="userId"></param>
-        /// <returns></returns>
-        /// <exception cref="UnauthorizedAccessException"></exception>
-        public async Task PasswordUpdateAsync(PasswordUpdateDTO passwordUpdateDTO, string name)
+        /// <param name="userId">The Id tied to the User.</param>
+        public async Task PasswordUpdateAsync(PasswordUpdateDTO passwordUpdateDTO, int userId)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == name);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
 
             if (user != null)
             {
